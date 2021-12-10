@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h3{
+    margin: auto;
+}
+
+.grid{
+    width: 640px;
+    height: 640px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /*La perspectiva determina la distancia del eje z*/
+    perspective: 1000px;
+}
+
+.card{
+    width: 25%;
+    height: 25%;
+    position: relative;
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+/*Efecto de achicar las cartas con el click*/
+.card:active{
+    transform: scale(.95);
+    transition: transform .2s;
+}
+
+/*Para dar vuelta las cartas*/
+.card.flip{
+    transform: rotateY(180deg);
+}
+
+.front, .back{
+    width: 100%;
+    height: 100%;
+    padding: 20 px;
+    border-radius: 5px;
+    position: absolute;
+    border: 2px solid;
+    backface-visibility: hidden;
+}
+
+.front{
+    transform: rotateY(180deg);
+}
