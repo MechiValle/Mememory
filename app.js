@@ -65,6 +65,7 @@ function flipBack() {
     }, 1000)
 }
 
+//Creamos una función para devolver todo a su estado inicial después de cada jugada
 function reset(){
     [flippedCard, lockBoard] = [false, false];
     [card1, card2] = [null, null];
