@@ -5,66 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Mememory Game</title>
+    <title>Memery Game</title>
 </head>
 <body>
-    <h1>Mememory Game</h1>
+    <h1>Memery Game</h1>
 
     <h3>Score</h3>
 
     <section class="grid">
-        <div class="card">
-            <img class="front" src="images/anana.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
+        <!--Como dos elementos no pueden tener el mismo id,
+        vamos a trabajar con el atributo "data" para hacer match--> 
+        <div class="card" data-match="meme1">
+            <img class="front" src="images/meme1.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
         </div>
-        <div class="card">
-            <img class="front" src="images/anana.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
-        </div>
-
-        <div class="card">
-            <img class="front" src="images/lluvia.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
-        </div>
-        <div class="card">
-            <img class="front" src="images/lluvia.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
+        <div class="card" data-match="meme1">
+            <img class="front" src="images/meme1.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
         </div>
 
-        <div class="card">
-            <img class="front" src="images/pared.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
+        <div class="card" data-match="meme2">
+            <img class="front" src="images/meme2.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
         </div>
-        <div class="card">
-            <img class="front" src="images/pared.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
-        </div>
-
-        <div class="card">
-            <img class="front" src="images/pc.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
-        </div>
-        <div class="card">
-            <img class="front" src="images/pc.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
+        <div class="card"  data-match="meme2">
+            <img class="front" data-match="meme2" src="images/meme2.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
         </div>
 
-        <div class="card">
-            <img class="front" src="images/tv.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
+        <div class="card" data-match="meme3">
+            <img class="front" src="images/meme3.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
         </div>
-        <div class="card">
-            <img class="front" src="images/tv.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
+        <div class="card" data-match="meme3">
+            <img class="front" src="images/meme3.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
         </div>
 
-        <div class="card">
-            <img class="front" src="images/ventana.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
+        <div class="card" data-match="meme4">
+            <img class="front" src="images/meme4.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
         </div>
-        <div class="card">
-            <img class="front" src="images/ventana.jpeg" alt="">
-            <img class="back" src="images/endava-back.png" alt="">
+        <div class="card" data-match="meme4">
+            <img class="front" src="images/meme4.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
+        </div>
+
+        <div class="card" data-match="meme5">
+            <img class="front" src="images/meme5.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
+        </div>
+        <div class="card" data-match="meme5">
+            <img class="front" src="images/meme5.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
+        </div>
+
+        <div class="card" data-match="meme6">
+            <img class="front" src="images/meme6.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
+        </div>
+        <div class="card" data-match="meme6">
+            <img class="front" src="images/meme6.jpeg" alt="">
+            <img class="back" src="images/backface.png" alt="">
         </div>
     </section>
 <script src="app.js"></script>
