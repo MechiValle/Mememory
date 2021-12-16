@@ -20,6 +20,9 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 
 function flipCard() {
+    //Chequeamos que esta función se ejecute solo cuando this está asignado a la primera carta, para evitar que se pueda matchear haciendo dos clicks sobre una misma carta
+    if (this===card1) return;
+    
     if(lockBoard) return;
     //Agregamos la clase 'flip' a la carta una vez que se clickea
     this.classList.add('flip');
@@ -49,6 +52,7 @@ function matchTwo() {
 function disableCards() {
     card1.removeEventListener('click', flipCard);
     card2.removeEventListener('click', flipCard);
+    reset();
 }
 
 function flipBack() {
@@ -57,6 +61,11 @@ function flipBack() {
         card1.classList.remove('flip');
         card2.classList.remove('flip');
         lockBoard = false;
+        reset();
     }, 1000)
 }
 
+function reset(){
+    [flippedCard, lockBoard] = [false, false];
+    [card1, card2] = [null, null];
+}
