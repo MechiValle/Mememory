@@ -90,6 +90,7 @@ header {
     }
     header {
         font-size: 2em;
+        margin: 20px 0;
     }
 
     .board {
@@ -97,8 +98,8 @@ header {
     }
     .grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(1fr, auto));
-        grid-template-rows: repeat(3, minmax(1fr, auto));
+        grid-template-columns: repeat(4, minmax(200px, auto));
+        grid-template-rows: repeat(3, minmax(200px, auto));
         grid-column-gap: 20px;
         grid-row-gap: 20px;
         width: 100%;
