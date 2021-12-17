@@ -25,20 +25,10 @@
                 <h1>Memery Game</h1>
             </header>
             <div class="board">
-                <h4>Time <span id="time"></span> seconds</h4>
+                <h2 class="counter">Time <span id="time"></span> seconds</h2>
                 <section class="grid">
                     <!--Como dos elementos no pueden tener el mismo id,
             vamos a trabajar con el atributo "data" para hacer match-->
-                    <div>
-                        <div class="card" data-match="meme1">
-                            <img class="front" src="images/meme1.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
-                        </div>
-                    </div>
                     <div>
                         <div class="card" data-match="meme1">
                             <img class="front" src="images/meme1.png" alt="" />
@@ -60,11 +50,21 @@
                         </div>
                     </div>
                     <div>
-                        <div class="card" data-match="meme2">
+                        <div class="card" data-match="meme6">
+                            <img class="front" src="images/meme6.png" alt="" />
+                            <img
+                                class="back"
+                                src="images/backface.png"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" data-match="meme4">
                             <img
                                 class="front"
-                                data-match="meme2"
-                                src="images/meme2.png"
+                                data-match="meme4"
+                                src="images/meme4.png"
                                 alt=""
                             />
                             <img
@@ -86,8 +86,8 @@
                         </div>
                     </div>
                     <div>
-                        <div class="card" data-match="meme3">
-                            <img class="front" src="images/meme3.png" alt="" />
+                        <div class="card" data-match="meme1">
+                            <img class="front" src="images/meme1.png" alt="" />
                             <img
                                 class="back"
                                 src="images/backface.png"
@@ -107,8 +107,8 @@
                         </div>
                     </div>
                     <div>
-                        <div class="card" data-match="meme4">
-                            <img class="front" src="images/meme4.png" alt="" />
+                        <div class="card" data-match="meme2">
+                            <img class="front" src="images/meme2.png" alt="" />
                             <img
                                 class="back"
                                 src="images/backface.png"
@@ -127,28 +127,28 @@
                         </div>
                     </div>
                     <div>
+                        <div class="card" data-match="meme3">
+                            <img class="front" src="images/meme3.png" alt="" />
+                            <img
+                                class="back"
+                                src="images/backface.png"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" data-match="meme6">
+                            <img class="front" src="images/meme6.png" alt="" />
+                            <img
+                                class="back"
+                                src="images/backface.png"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div>
                         <div class="card" data-match="meme5">
                             <img class="front" src="images/meme5.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme6">
-                            <img class="front" src="images/meme6.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme6">
-                            <img class="front" src="images/meme6.png" alt="" />
                             <img
                                 class="back"
                                 src="images/backface.png"
@@ -159,6 +159,11 @@
                 </section>
             </div>
         </section>
+
+        <footer>
+            <h4>Made with tears by</h4>
+            <h4>Agus • Mechi • Tina</h4>
+        </footer>
 
         <script src="app.js"></script>
     </body>
