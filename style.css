@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lexend Deca", sans-serif;
+    color: #fafafa;
+    background-color: #001f31;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
