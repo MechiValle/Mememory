@@ -6,10 +6,60 @@
 
 body {
     font-family: "Lexend Deca", sans-serif;
-    color: #fafafa;
     background-color: #001f31;
+    color: #fafafa;
     height: 100vh;
+    text-align: center;
+}
+
+main {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    padding: 120px 0 40px 0;
+}
+
+header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 36px;
+    color: #ade2ff;
+    font-weight: 900;
+    margin-top: 12px;
+}
+
+a:hover {
+    color: #65c8ff;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: flex;
+    }
+    img {
+        width: 350px;
+        margin-bottom: 20px;
+    }
 }
