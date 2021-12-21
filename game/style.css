@@ -1,0 +1,143 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lexend Deca", sans-serif;
+    color: #dbdbdb;
+    background-color: #001f31;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    font-weight: 300;
+    padding: 12px 0;
+}
+
+.desktop {
+    display: none;
+}
+.mobile {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media (min-width: 320px) {
+}
+
+/* smartphones, Android phones, landscape iPhone */
+@media (min-width: 480px) {
+}
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media (min-width: 600px) {
+}
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width: 801px) {
+}
+/* big landscape tablets, laptops, and desktops */
+@media (min-width: 1025px) {
+    .desktop {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .counter {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #cccccc;
+        font-size: 16px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(150px, auto));
+        grid-template-rows: repeat(3, minmax(150px, auto));
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform: scale(1);
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+    }
+
+    /*Efecto de achicar las cartas con el click*/
+    .card:active {
+        transform: scale(0.95);
+        transition: transform 0.2s;
+    }
+
+    /*Para dar vuelta las cartas*/
+    .card.flip {
+        transform: rotateY(180deg);
+    }
+
+    .front,
+    .back {
+        width: 100%;
+        height: 100%;
+        padding: 20 px;
+        border-radius: 5px;
+        position: absolute;
+        backface-visibility: hidden;
+    }
+
+    .front {
+        transform: rotateY(180deg);
+    }
+}
+
+/* hi-res laptops and desktops */
+@media (min-width: 1281px) {
+    body {
+        padding: 120px 0;
+    }
+    header {
+        font-size: 2em;
+        margin: 20px 0;
+    }
+
+    .board {
+        font-size: 1em;
+    }
+
+    .counter {
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(200px, auto));
+        grid-template-rows: repeat(3, minmax(200px, auto));
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        width: 100%;
+    }
+}

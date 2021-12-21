@@ -6,8 +6,8 @@
 
 body {
     font-family: "Lexend Deca", sans-serif;
-    color: #fafafa;
     background-color: #001f31;
+    color: #fafafa;
     height: 100vh;
     text-align: center;
 }
@@ -26,6 +26,12 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 200px;
+    margin-bottom: 20px;
 }
 
 a {
@@ -41,10 +47,6 @@ a:hover {
     color: #65c8ff;
 }
 
-/* No me esta tomando el font weight */
-footer {
-    font-weight: 300;
-}
 .mobile {
     display: none;
 }
@@ -55,5 +57,9 @@ footer {
     }
     .mobile {
         display: flex;
+    }
+    img {
+        width: 350px;
+        margin-bottom: 20px;
     }
 }
