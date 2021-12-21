@@ -9,7 +9,51 @@ body {
     color: #fafafa;
     background-color: #001f31;
     height: 100vh;
+    text-align: center;
+}
+
+main {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    padding: 120px 0 40px 0;
+}
+
+header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 36px;
+    color: #ade2ff;
+    font-weight: 900;
+    margin-top: 12px;
+}
+
+a:hover {
+    color: #65c8ff;
+}
+
+/* No me esta tomando el font weight */
+footer {
+    font-weight: 300;
+}
+.mobile {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: flex;
+    }
 }
