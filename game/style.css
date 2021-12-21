@@ -16,6 +16,7 @@ body {
 
 header {
     text-align: center;
+    font-size: 16px;
 }
 
 footer {
@@ -34,23 +35,9 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-@media (min-width: 320px) {
-}
-
-/* smartphones, Android phones, landscape iPhone */
-@media (min-width: 480px) {
-}
-
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-@media (min-width: 600px) {
-}
-
-/* tablet, landscape iPad, lo-res laptops ands desktops */
-@media (min-width: 801px) {
-}
 /* big landscape tablets, laptops, and desktops */
 @media (min-width: 1025px) {
     .desktop {
@@ -73,10 +60,10 @@ footer {
 
     .grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(150px, auto));
-        grid-template-rows: repeat(3, minmax(150px, auto));
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
+        grid-template-columns: repeat(4, minmax(140px, auto));
+        grid-template-rows: repeat(3, minmax(140px, auto));
+        grid-column-gap: 8px;
+        grid-row-gap: 8px;
     }
 
     .card {
