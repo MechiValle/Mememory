@@ -55,11 +55,11 @@ let gameFinished = false;
 
 // Creamos una funcion setInterval que se ejecuta cada un segundo mientras el juego no haya terminado,
 // suma 1 al contador de tiempo y lo muestra en el html.
-setInterval(() => {
-    if (!gameFinished) {
-        count++;
-        counterElement.innerText = count;
-    }
+let finalCount = setInterval(() => {
+  if (!gameFinished) {
+    count++;
+    counterElement.innerText = count;
+  }
 }, 1000);
 
 function disableCards() {
@@ -70,6 +70,10 @@ function disableCards() {
     card2.dataset.matched = true;
     // El juego finaliza cuando las 12 cartas tienen el atributo data-matched
     gameFinished = document.querySelectorAll("[data-matched]").length === 12;
+    
+    if (gameFinished) {
+    setTimeout(function(){window.location = "../end/index.html"}, 3000);
+  }
 
     reset();
 }
