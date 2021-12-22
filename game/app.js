@@ -1,20 +1,16 @@
 //Creamos un bool que de true cuando la carta está dada vuelta
-
 let flippedCard = false;
 
 //Creamos variables que contengan la primera y la segunda carta.
-
 let card1, card2;
 
 //Creamos el bool lockBoard para impedir que el usuario de vuelta más de dos cartas a la vez
 let lockBoard = false;
 
 //Seleccionar todas las cartas con su clase para después usarlas en las funciones
-
 const cards = document.querySelectorAll(".card");
 
 //Por cada carta, cuando el usuario clickea, se va a llamar a la funcion flipCard
-
 cards.forEach((card) => card.addEventListener("click", flipCard));
 
 function flipCard() {
@@ -56,10 +52,10 @@ let gameFinished = false;
 // Creamos una funcion setInterval que se ejecuta cada un segundo mientras el juego no haya terminado,
 // suma 1 al contador de tiempo y lo muestra en el html.
 let finalCount = setInterval(() => {
-  if (!gameFinished) {
-    count++;
-    counterElement.innerText = count;
-  }
+    if (!gameFinished) {
+        count++;
+        counterElement.innerText = count;
+    }
 }, 1000);
 
 function disableCards() {
@@ -70,13 +66,20 @@ function disableCards() {
     card2.dataset.matched = true;
     // El juego finaliza cuando las 12 cartas tienen el atributo data-matched
     gameFinished = document.querySelectorAll("[data-matched]").length === 12;
-    
-    if (gameFinished) {
-    setTimeout(function(){window.location = "../end/index.html"}, 3000);
-  }
 
+    // Agregamos un boton que solo sera visible cuando el juego haya finalizado
+    if (gameFinished) {
+        document.getElementById("replay").classList.add("show");
+    }
     reset();
 }
+
+// Agregamos la logica al boton para recargar la pagina una vez finalizado el juego
+const replayButton = document.getElementById("replay");
+
+replayButton.addEventListener("click", () => {
+    window.location.reload();
+});
 
 function flipBack() {
     lockBoard = true;
@@ -85,7 +88,7 @@ function flipBack() {
         card2.classList.remove("flip");
         lockBoard = false;
         reset();
-    }, 1000);
+    }, 500);
 }
 
 //Creamos una función para devolver todo a su estado inicial después de cada jugada
@@ -93,3 +96,17 @@ function reset() {
     [flippedCard, lockBoard] = [false, false];
     [card1, card2] = [null, null];
 }
+
+// Creamos una funcion para ordenar aleatoriamente las cartas
+function shuffle() {
+    const grid = document.getElementById("grid");
+    // Utilizamos el spread operator para convertir un HTML collection en un Array
+    // y poder asi recorrerlo con un For Each, que servira para cambiar el orden de los elementos
+    const cards = [...grid.children];
+    cards.forEach((card) => {
+        let randomPos = Math.floor(Math.random() * 12);
+        card.style.order = randomPos;
+    });
+}
+
+shuffle();
