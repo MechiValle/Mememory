@@ -14,159 +14,212 @@
         <title>Memery Game</title>
     </head>
     <body>
-        <section class="mobile">
-            <header>
-                <h1>Memery Game</h1>
-            </header>
-            <h2>Play me from your computer</h2>
-            <footer>
-                <h4>Made with tears by</h4>
-                <h4>Agus • Mechi • Tina</h4>
-            </footer>
-        </section>
-        <section class="desktop">
-            <header>
-                <h1>Memery Game</h1>
-                <h2 class="counter">Time <span id="time"></span> seconds</h2>
-            </header>
-            <div class="board">
-                <section class="grid">
-                    <!--Como dos elementos no pueden tener el mismo id,
+        <main>
+            <section class="mobile">
+                <header>
+                    <img src="images/memery_logo.svg" alt="Memery Game logo" />
+                    <h2>Play me from your computer</h2>
+                </header>
+                <footer>
+                    <div>Made with tears by</div>
+                    <div>Agus • Mechi • Tina</div>
+                </footer>
+            </section>
+            <section class="desktop">
+                <header>
+                    <h1>Memery Game</h1>
+                    <div>
+                        <h2 class="counter">
+                            Time <span id="time"></span> seconds
+                        </h2>
+                        <button id="replay" class="hidden">Replay</button>
+                    </div>
+                </header>
+                <div class="board">
+                    <!-- Para poder reordenar los elementos asignamos un ID al contenedor de la grilla, 
+                        que nos permitira recolectar los datos que tenemos dentro del contenedor-->
+                    <section id="grid" class="grid">
+                        <!--Como dos elementos no pueden tener el mismo id,
             vamos a trabajar con el atributo "data" para hacer match-->
-                    <div>
-                        <div class="card" data-match="meme1">
-                            <img class="front" src="images/meme1.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme1">
+                                <img
+                                    class="front"
+                                    src="images/meme1.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme2">
-                            <img class="front" src="images/meme2.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme2">
+                                <img
+                                    class="front"
+                                    src="images/meme2.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme6">
-                            <img class="front" src="images/meme6.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme6">
+                                <img
+                                    class="front"
+                                    src="images/meme6.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme4">
-                            <img
-                                class="front"
-                                data-match="meme4"
-                                src="images/meme4.png"
-                                alt=""
-                            />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme4">
+                                <img
+                                    class="front"
+                                    data-match="meme4"
+                                    src="images/meme4.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <div class="card" data-match="meme3">
-                            <img class="front" src="images/meme3.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme3">
+                                <img
+                                    class="front"
+                                    src="images/meme3.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme1">
-                            <img class="front" src="images/meme1.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme1">
+                                <img
+                                    class="front"
+                                    src="images/meme1.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <div class="card" data-match="meme4">
-                            <img class="front" src="images/meme4.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme4">
+                                <img
+                                    class="front"
+                                    src="images/meme4.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme2">
-                            <img class="front" src="images/meme2.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme2">
+                                <img
+                                    class="front"
+                                    src="images/meme2.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme5">
-                            <img class="front" src="images/meme5.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme5">
+                                <img
+                                    class="front"
+                                    src="images/meme5.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme3">
-                            <img class="front" src="images/meme3.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme3">
+                                <img
+                                    class="front"
+                                    src="images/meme3.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme6">
-                            <img class="front" src="images/meme6.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme6">
+                                <img
+                                    class="front"
+                                    src="images/meme6.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="card" data-match="meme5">
-                            <img class="front" src="images/meme5.png" alt="" />
-                            <img
-                                class="back"
-                                src="images/backface.png"
-                                alt=""
-                            />
+                        <div>
+                            <div class="card" data-match="meme5">
+                                <img
+                                    class="front"
+                                    src="images/meme5.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="back"
+                                    src="images/backface.png"
+                                    alt=""
+                                />
+                            </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-            <footer>
-                <h4>Made with tears by</h4>
-                <h4>Agus • Mechi • Tina</h4>
-            </footer>
-        </section>
+                    </section>
+                </div>
+                <footer>
+                    <div>Made with tears by</div>
+                    <div>Agus • Mechi • Tina</div>
+                </footer>
+            </section>
+        </main>
         <script src="app.js"></script>
     </body>
 </html>
