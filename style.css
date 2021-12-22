@@ -18,7 +18,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 120px 0 40px 0;
+    padding: 7.5rem 0 2.5rem 0;
 }
 
 header {
@@ -26,34 +26,42 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 a {
     text-decoration: none;
     cursor: pointer;
-    font-size: 36px;
+    font-size: 2.25rem;
     color: #ade2ff;
     font-weight: 900;
-    margin-top: 12px;
+    margin-top: 0.75rem;
 }
 
 a:hover {
     color: #65c8ff;
 }
 
-/* No me esta tomando el font weight */
 footer {
+    font-family: "Inter", sans-serif;
     font-weight: 300;
+    font-size: 0.75rem;
+    color: #98d1ff;
 }
-.mobile {
+
+.desktop {
     display: none;
 }
 
-@media (max-width: 1024px) {
-    .desktop {
+.mobile {
+    display: flex;
+}
+
+@media (min-width: 1025px) {
+    .mobile {
         display: none;
     }
-    .mobile {
+    .desktop {
         display: flex;
     }
 }
