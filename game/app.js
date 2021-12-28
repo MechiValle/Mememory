@@ -7,6 +7,91 @@ let card1, card2;
 //Creamos el bool lockBoard para impedir que el usuario de vuelta más de dos cartas a la vez
 let lockBoard = false;
 
+fetch("https://memery-api.herokuapp.com/api/images")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        // data.frontFace.imagesSrc.forEach((card) =>
+        //     console.log(`<img src="${card}"/>`)
+        // );
+    });
+
+// Traemos la data que esta en el Endpoint para poder trabajar de modo local y crear las funciones de modo mas facil
+const cardsData = {
+    backFace: { class: "back", src: "images/backface.png" },
+    frontFace: {
+        class: "front",
+        imagesSrc: [
+            "images/meme1.png",
+            "images/meme2.png",
+            "images/meme3.png",
+            "images/meme4.png",
+            "images/meme5.png",
+            "images/meme6.png",
+        ],
+    },
+};
+
+// Creamos una funcion que va a recibir por parametro los datos que vienen del Endpoint
+function createCard(imgFront, imgBack, classFront, classBack, dataId) {
+    // creamos un div con el metodo createElement() (Manipulacion del DOM)
+    const container = document.createElement("div");
+    // creamos un template literal (bloque de HTML en JS) que contiene placeholders
+    // que nos van a permitir recibir los argumentos de la funcion
+    const card = `
+    <div class="card" data-match="${dataId}">
+        <img class="${classFront}" src="${imgFront}" alt="" />
+        <img class="${classBack}" src="${imgBack}" alt="" />
+    </div>`;
+    // inyectamos la informacion card (template literal) dentro del div que creamos anteriormente
+    container.innerHTML = card;
+
+    return container;
+}
+
+// creamos una funcion para crear el board
+function createBoard(cards) {
+    // creamos un section con el metodo createElement() (Manipulacion del DOM)
+    const grid = document.createElement("section");
+    // agregamos a la section a la clase grid
+    grid.classList.add("grid");
+    // agregamos a la section un ID tambien llamado grid
+    grid.setAttribute("id", "grid");
+    // guardaoms la data que viene del Endpoint en variables para poder utilizarlas luego en las funciones Create Card
+    const imgsFront = cards.frontFace.imagesSrc;
+    const imgBack = cards.backFace.src;
+    const classFront = cards.frontFace.class;
+    const classBack = cards.backFace.class;
+
+    // guardamos en una variable el elemento HTML con ID board
+    const board = document.getElementById("board");
+
+    // Recorremos el array de imagenes que se encuentra en nuestro Endpoint y en cada iteracion ejecutamos la funcion createCard() que nos devuelve el doble de cards.
+    imgsFront.forEach((imgFront) => {
+        const cardElement = createCard(
+            imgFront,
+            imgBack,
+            classFront,
+            classBack,
+            imgFront
+        );
+        const cardElement2 = createCard(
+            imgFront,
+            imgBack,
+            classFront,
+            classBack,
+            imgFront
+        );
+        // Con el metodo appendChild insertamos las cards (HTML) en el grid
+        grid.appendChild(cardElement);
+        grid.appendChild(cardElement2);
+    });
+    // Con el metodo appendChild insertamos el grid en el board (unico elemento HTML que creamos en index.html)
+    board.appendChild(grid);
+}
+
+createBoard(cardsData);
+
 //Seleccionar todas las cartas con su clase para después usarlas en las funciones
 const cards = document.querySelectorAll(".card");
 
@@ -43,7 +128,7 @@ function matchTwo() {
 }
 
 // Creamos un contador de tiempo
-let count = 0;
+let count = 1000;
 const counterElement = document.getElementById("time");
 // Creamos una variable que donde se encuentra el estado del juego,
 // y nos va a permitir verificar si el juego termino.
@@ -53,7 +138,7 @@ let gameFinished = false;
 // suma 1 al contador de tiempo y lo muestra en el html.
 let finalCount = setInterval(() => {
     if (!gameFinished) {
-        count++;
+        count--;
         counterElement.innerText = count;
     }
 }, 1000);
