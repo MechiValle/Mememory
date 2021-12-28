@@ -7,31 +7,6 @@ let card1, card2;
 //Creamos el bool lockBoard para impedir que el usuario de vuelta más de dos cartas a la vez
 let lockBoard = false;
 
-fetch("https://memery-api.herokuapp.com/api/images")
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-        // data.frontFace.imagesSrc.forEach((card) =>
-        //     console.log(`<img src="${card}"/>`)
-        // );
-    });
-
-// Traemos la data que esta en el Endpoint para poder trabajar de modo local y crear las funciones de modo mas facil
-const cardsData = {
-    backFace: { class: "back", src: "images/backface.png" },
-    frontFace: {
-        class: "front",
-        imagesSrc: [
-            "images/meme1.png",
-            "images/meme2.png",
-            "images/meme3.png",
-            "images/meme4.png",
-            "images/meme5.png",
-            "images/meme6.png",
-        ],
-    },
-};
-
 // Creamos una funcion que va a recibir por parametro los datos que vienen del Endpoint
 function createCard(imgFront, imgBack, classFront, classBack, dataId) {
     // creamos un div con el metodo createElement() (Manipulacion del DOM)
@@ -90,14 +65,6 @@ function createBoard(cards) {
     board.appendChild(grid);
 }
 
-createBoard(cardsData);
-
-//Seleccionar todas las cartas con su clase para después usarlas en las funciones
-const cards = document.querySelectorAll(".card");
-
-//Por cada carta, cuando el usuario clickea, se va a llamar a la funcion flipCard
-cards.forEach((card) => card.addEventListener("click", flipCard));
-
 function flipCard() {
     //Chequeamos que esta función se ejecute solo cuando this está asignado a la primera carta, para evitar que se pueda matchear haciendo dos clicks sobre una misma carta
     if (this === card1) return;
@@ -128,7 +95,7 @@ function matchTwo() {
 }
 
 // Creamos un contador de tiempo
-let count = 1000;
+let count = 0;
 const counterElement = document.getElementById("time");
 // Creamos una variable que donde se encuentra el estado del juego,
 // y nos va a permitir verificar si el juego termino.
@@ -138,7 +105,7 @@ let gameFinished = false;
 // suma 1 al contador de tiempo y lo muestra en el html.
 let finalCount = setInterval(() => {
     if (!gameFinished) {
-        count--;
+        count++;
         counterElement.innerText = count;
     }
 }, 1000);
@@ -194,4 +161,20 @@ function shuffle() {
     });
 }
 
-shuffle();
+// hacemos un fetch para traer la informacion de nuestro Endpoint
+// movemos la ejecucion de la funcion createBoard, la declaracion de cards, el addEventlistener, y la funcion shuffle
+
+fetch("https://memery-api.herokuapp.com/api/images")
+    .then((response) => response.json())
+    .then((data) => {
+        //ejecutamos la funcion createBoard utlizando como argumento la data obtenida desde nuestro Endpoint
+        createBoard(data);
+
+        //Seleccionar todas las cartas con su clase para después usarlas en las funciones
+        const cards = document.querySelectorAll(".card");
+
+        //Por cada carta, cuando el usuario clickea, se va a llamar a la funcion flipCard
+        cards.forEach((card) => card.addEventListener("click", flipCard));
+
+        shuffle();
+    });
