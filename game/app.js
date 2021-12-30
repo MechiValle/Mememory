@@ -11,27 +11,31 @@ let lockBoard = false;
 function createCard(imgFront, imgBack, classFront, classBack, dataId) {
     // creamos un div con el metodo createElement() (Manipulacion del DOM)
     const container = document.createElement("div");
+    // agregamos al container la clase "card" y el atributo data "data-match"
+    container.classList.add("card");
+    container.setAttribute("data-match", dataId);
     // creamos un template literal (bloque de HTML en JS) que contiene placeholders
     // que nos van a permitir recibir los argumentos de la funcion
+
     const card = `
-    <div class="card" data-match="${dataId}">
         <img class="${classFront}" src="${imgFront}" alt="" />
         <img class="${classBack}" src="${imgBack}" alt="" />
-    </div>`;
+    `;
     // inyectamos la informacion card (template literal) dentro del div que creamos anteriormente
     container.innerHTML = card;
 
     return container;
 }
 
+// creamos un section con el metodo createElement() (Manipulacion del DOM)
+const grid = document.createElement("section");
+
 // creamos una funcion para crear el board
 function createBoard(cards) {
-    // creamos un section con el metodo createElement() (Manipulacion del DOM)
-    const grid = document.createElement("section");
     // agregamos a la section a la clase grid
     grid.classList.add("grid");
     // agregamos a la section un ID tambien llamado grid
-    grid.setAttribute("id", "grid");
+    // grid.setAttribute("id", "grid");
     // guardaoms la data que viene del Endpoint en variables para poder utilizarlas luego en las funciones Create Card
     const imgsFront = cards.frontFace.imagesSrc;
     const imgBack = cards.backFace.src;
@@ -151,7 +155,6 @@ function reset() {
 
 // Creamos una funcion para ordenar aleatoriamente las cartas
 function shuffle() {
-    const grid = document.getElementById("grid");
     // Utilizamos el spread operator para convertir un HTML collection en un Array
     // y poder asi recorrerlo con un For Each, que servira para cambiar el orden de los elementos
     const cards = [...grid.children];
