@@ -162,7 +162,7 @@ function disableCards() {
         document.getElementById("replay").classList.add("show");
         scoreTitle.classList.add("show");
         scoreCounter.classList.add("show");
-        scoreCounter.innerText = count - moves;
+        scoreCounter.innerText = count - moves + cardsData.frontFace.imagesSrc.length*2;
     }
     reset();
 }
