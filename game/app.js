@@ -1,6 +1,5 @@
 //Creamos un bool que de true cuando la carta está dada vuelta
 let flippedCard = false;
-
 //Creamos variables que contengan la primera y la segunda carta.
 let card1, card2;
 
@@ -72,10 +71,10 @@ function createBoard(cards) {
 function flipCard() {
     //Chequeamos que esta función se ejecute solo cuando this está asignado a la primera carta, para evitar que se pueda matchear haciendo dos clicks sobre una misma carta
     if (this === card1) return;
-
     if (lockBoard) return;
     //Agregamos la clase 'flip' a la carta una vez que se clickea
     this.classList.add("flip");
+    movesCounter();
     if (!flippedCard) {
         //Pasamos el bool a true
         flippedCard = true;
@@ -88,7 +87,6 @@ function flipCard() {
         matchTwo();
     }
 }
-
 function matchTwo() {
     //Vamos a chequear si las dos coinciden (usando el atributo data)
     if (card1.dataset.match === card2.dataset.match) {
@@ -99,8 +97,19 @@ function matchTwo() {
 }
 
 // Creamos un contador de tiempo
-let count = 0;
+let count = 200;
+let moves = 0;
+
+const scoreCounter = document.getElementById("score");
+const scoreTitle = document.getElementById("scoreTitle");
 const counterElement = document.getElementById("time");
+const movesCount = document.getElementById("moves");
+
+function movesCounter() {
+    movesCount.innerText++;
+    moves++;
+}
+
 // Creamos una variable que donde se encuentra el estado del juego,
 // y nos va a permitir verificar si el juego termino.
 let gameFinished = false;
@@ -108,9 +117,13 @@ let gameFinished = false;
 // Creamos una funcion setInterval que se ejecuta cada un segundo mientras el juego no haya terminado,
 // suma 1 al contador de tiempo y lo muestra en el html.
 let finalCount = setInterval(() => {
-    if (!gameFinished) {
-        count++;
+    if (!gameFinished && count >= 1) {
+        count--;
         counterElement.innerText = count;
+    } else {
+        clearInterval(finalCount);
+        lockBoard = true;
+        document.getElementById("replay").classList.add("show");
     }
 }, 1000);
 
@@ -126,6 +139,9 @@ function disableCards() {
     // Agregamos un boton que solo sera visible cuando el juego haya finalizado
     if (gameFinished) {
         document.getElementById("replay").classList.add("show");
+        scoreTitle.classList.add("show");
+        scoreCounter.classList.add("show");
+        scoreCounter.innerText = count - moves;
     }
     reset();
 }
