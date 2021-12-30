@@ -33,9 +33,8 @@ const grid = document.createElement("section");
 function createBoard(cards) {
     // agregamos a la section a la clase grid
     grid.classList.add("grid");
-    // agregamos a la section un ID tambien llamado grid
-    // grid.setAttribute("id", "grid");
-    // guardaoms la data que viene del Endpoint en variables para poder utilizarlas luego en las funciones Create Card
+
+    // guardamos la data que viene del Endpoint en variables para poder utilizarlas luego en las funciones Create Card
     const imgsFront = cards.frontFace.imagesSrc;
     const imgBack = cards.backFace.src;
     const classFront = cards.frontFace.class;
