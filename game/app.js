@@ -6,6 +6,8 @@ let card1, card2;
 //Creamos el bool lockBoard para impedir que el usuario de vuelta más de dos cartas a la vez
 let lockBoard = false;
 
+let cardsData = [];
+
 // Creamos una funcion que va a recibir por parametro los datos que vienen del Endpoint
 function createCard(imgFront, imgBack, classFront, classBack, dataId) {
     // creamos un div con el metodo createElement() (Manipulacion del DOM)
@@ -140,7 +142,8 @@ function disableCards() {
         document.getElementById("replay").classList.add("show");
         scoreTitle.classList.add("show");
         scoreCounter.classList.add("show");
-        scoreCounter.innerText = count - moves + cardsData.frontFace.imagesSrc.length*2;
+        scoreCounter.innerText =
+            count - moves + cardsData.frontFace.imagesSrc.length * 2;
     }
     reset();
 }
@@ -185,6 +188,7 @@ function shuffle() {
 fetch("https://memery-api.herokuapp.com/api/images")
     .then((response) => response.json())
     .then((data) => {
+        cardsData = data;
         //ejecutamos la funcion createBoard utlizando como argumento la data obtenida desde nuestro Endpoint
         createBoard(data);
 
